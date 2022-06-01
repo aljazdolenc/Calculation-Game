@@ -27,14 +27,4 @@ Simplified view should be as follows:
 7 + 12 = 19 correct!
 5 + 4 = 9 correct!
 5 + 4 = 8 wrong!
-```
-
-#### Run project
-
-```
-
-First terminal for running app: ng serve --open
-Second terminal for running tests: ng test
-Open in browser http://localhost:9876/ for tracking results of testing
-
-```
+``` 
