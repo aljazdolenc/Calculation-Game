@@ -1,19 +1,6 @@
 <div class="history-container">
 
-  <!--   <mat-list role="list" >
-
-      <mat-list-item
-      role="listitem"
-
-      >
-
-
-      </mat-list-item>
-
-    </mat-list> -->
-
-
-    <mat-grid-list cols="3" rowHeight="3:1">
+    <mat-grid-list [cols]="colNumber" rowHeight="3:1">
       <mat-grid-tile
       class="history-item"
       *ngFor="let item of historyArray"

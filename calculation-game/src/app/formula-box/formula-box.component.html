@@ -1,9 +1,9 @@
 <div class="cont">
   <div class="innerCont">
 
-    <div style="padding-bottom: 0.7rem;">{{firstNum}} + {{secondNum}} =</div>
+    <div style="padding-bottom: 2.5rem;">{{firstNum}} + {{secondNum}} =</div>
 
-      <mat-form-field appearance="standard" class="form-field">
+      <mat-form-field appearance="standard" class="form-field" [hideRequiredMarker]="true">
 
         <mat-label>Result</mat-label>
 
@@ -13,13 +13,28 @@
             #resultInput
             (keydown.enter)="submitResult(resultInput.valueAsNumber)"
             (click)="resetWrongMessage()"
-            [formControl]="resultForm">
+            [formControl]="resultForm"
+            >
 
-          <mat-error *ngIf="resultForm.invalid">Enter a value!</mat-error>
+          <mat-error *ngIf="resultForm.invalid">Enter value</mat-error>
 
       </mat-form-field>
 
 
-    <div class="wrongResult" style="color: red; font-size: 1.5rem;" *ngIf="wrongAnswer"> Wrong!</div>
+    <div *ngIf="wrongAnswer">
+      <mat-icon
+      class="wrongResult"
+      style="color: red; "
+      >close</mat-icon>
+    </div>
 
-    <div class="correctResult" style="color: green; font-size: 1.5rem;" *ngIf="correctAnswer"> Correct!</div>
+    <div *ngIf="correctAnswer">
+      <mat-icon
+      class="correctResult"
+      style="color: green"
+      >check_circle_outline</mat-icon>
+    </div>
+
+  </div>
+
+</div>

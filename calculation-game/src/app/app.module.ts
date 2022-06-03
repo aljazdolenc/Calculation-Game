@@ -13,6 +13,7 @@ import {ReactiveFormsModule } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {LayoutModule} from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     ReactiveFormsModule,
     MatIconModule,
     MatListModule,
-    MatGridListModule
+    MatGridListModule,
+    LayoutModule
   ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}],

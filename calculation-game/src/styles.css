@@ -1,3 +1,72 @@
 /* You can add global styles to this file, and also import other style files */
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+:root{
+  --headerfs: 3rem;
+  --headerMB:0;
+  --historyItemFS:1rem;
+  --equationFS:2rem;
+  --cardWidth:55vw;
+  --inputErrFS:1rem;
+  --formFieldW:6rem;
+
+}
+
+/* XXSmall */
+@media (max-width: 399.98px){
+  :root{
+    --headerFS: 1.8rem;
+    --equationFS:1.5rem;
+  }
+}
+
+/* XSmall */
+@media (min-width: 400px) and (max-width: 599.98px){
+  :root{
+    --headerFS: 2.5rem;
+    --equationFS:1.75rem;
+  }
+}
+/* Small */
+@media (min-width: 600px) and (max-width: 959.98px){
+  :root{
+    --headerFS: 4rem;
+    --equationFS:2.5rem;
+    --inputErrFS:1.1rem;
+  }
+}
+/* Medium */
+@media (min-width: 960px) and (max-width: 1279.98px){
+  :root{
+    --headerFS: 4.5rem;
+    --historyItemFS:1.2rem;
+    --headerMB:2vh;
+    --equationFS:3.3rem;
+    --cardWidth: 60vw;
+    --formFieldW:7.5rem;
+    --inputErrFS:1.45rem;
+  }
+}
+/* Large */
+@media (min-width: 1280px) and (max-width: 1919.98px){
+  :root{
+    --headerFS: 6rem;
+    --historyItemFS:1rem;
+    --headerMB:2vh;
+    --equationFS:3.6rem;
+    --formFieldW:8.5rem;
+    --inputErrFS:1.65rem;
+  }
+}
+/* XLarge */
+@media (min-width: 1920px){
+  :root{
+    --headerFS: 6.5rem;
+    --historyItemFS:1rem;
+    --headerMB:2vh;
+    --equationFS:3.6rem;
+    --formFieldW:8.5rem;
+    --inputErrFS:1.65rem;
+  }
+}

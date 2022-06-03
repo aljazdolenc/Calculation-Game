@@ -3,25 +3,23 @@ body{
   background: linear-gradient(135deg, rgba(212,117,186,1) 0%, rgba(141,61,224,1) 51%, rgba(0,212,255,1) 100%);
   position: relative;
   height:fit-content;
-  min-height:95vh;
-  padding-bottom: 5vh;
+  min-height:100vh;
 }
 
-/* Header */
 .header{
   margin:auto;
-  height:10vh;
+  padding-top:5vh;
+  height:8vh;
   text-align: center;
-  font-size: 3rem;
+  font-size: var(--headerFS);
   color: white;
   font-family: 'Poppins', sans-serif;
   text-shadow: 2px 2px #bf0efabc;
-  padding-top: 3rem;
+  margin-bottom: var(--headerMB);
 }
 
-/* Container */
 .container{
-  width: 50vw;
+  width: 55vw;
   height:fit-content;
   border-radius: 15px;
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.3);
@@ -29,10 +27,8 @@ body{
   overflow: hidden;
   padding-bottom: 10vh;
   margin: auto;
+  margin-bottom: 5vh;
   backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
+  min-width: 270px;
 }
 
- app-formula-box, app-calculation-history{
-  position: relative;
-
-}

@@ -1,8 +1,7 @@
 .cont{
   height:10vh;
   margin: 8vh 0;
-  text-align: center;
-  font-size: 2rem;
+  /* text-align: center; */
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -10,7 +9,7 @@
 
 .innerCont{
   text-align: center;
-  font-size: 2rem;
+  font-size: var(--equationFS);
   color:rgba(241, 240, 240, 0.93);
   display: flex;
   align-items: center;
@@ -18,9 +17,9 @@
 
 }
 mat-form-field{
-  font-size:1.2rem;
-  padding-left: 0.5rem;
-  width: 6rem;
+  font-size: calc(var(--inputErrFS) + 0.4rem);
+  padding-left: 0.7rem;
+  width: var(--formFieldW);
   border: none;
   margin-bottom: 1rem;
 }
@@ -28,9 +27,18 @@ mat-form-field{
 mat-label{
   color:rgba(241, 240, 240, 0.933);
 }
+mat-error{
+  font-size: var(--inputErrFS);
+}
+
+::ng-deep.mat-form-field-infix{
+padding: 0;
+padding-bottom:0.7rem;
+border-top: 0;
+}
 
 input{
-  font-size: 1.5rem;
+  font-size: calc(var(--equationFS) - 0.1rem);
 }
 
 input[type=number]::-webkit-inner-spin-button,
@@ -38,5 +46,12 @@ input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+}
+
+.wrongResult, .correctResult{
+  font-size: var(--equationFS);
+  height:var(--equationFS);
+  width: var(--equationFS);
+  margin-bottom: 1rem;
 }
 

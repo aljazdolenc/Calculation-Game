@@ -12,7 +12,7 @@
   justify-content: center;
   margin:0;
   padding:0;
-  font-size: 1rem;
+  font-size: var(--historyItemFS);
 }
 
 .equation{
