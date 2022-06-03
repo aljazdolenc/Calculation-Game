@@ -10,7 +10,6 @@ import { HistoryItem } from '../shared/history-item.model';
 })
 export class CalculationHistoryComponent implements OnInit, OnDestroy {
 
-  @Input()rowHeight: string | number='48px';
 
   historyArray: HistoryItem[] = [];
 

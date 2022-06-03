@@ -2,43 +2,37 @@ body{
   background: rgb(212,117,186);
   background: linear-gradient(135deg, rgba(212,117,186,1) 0%, rgba(141,61,224,1) 51%, rgba(0,212,255,1) 100%);
   position: relative;
+  height:fit-content;
+  min-height:95vh;
+  padding-bottom: 5vh;
 }
 
 /* Header */
 .header{
   margin:auto;
-  padding-top: 6vh;
+  height:10vh;
   text-align: center;
   font-size: 3rem;
-  justify-content: baseline;
   color: white;
   font-family: 'Poppins', sans-serif;
   text-shadow: 2px 2px #bf0efabc;
+  padding-top: 3rem;
 }
 
 /* Container */
 .container{
   width: 50vw;
-  height:70vh;
-  position: absolute;
+  height:fit-content;
   border-radius: 15px;
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.3);
   font-size: 2rem;
   overflow: hidden;
-  bottom: 15vh;
-  left: 25vw;
-
-}
-.container:before {
-  background-color: rgba(255, 255, 255, 0.036);
+  padding-bottom: 10vh;
+  margin: auto;
   backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
-  content: '';
-  height: 100%;
-  position: absolute;
-  width: 100%;
 }
 
  app-formula-box, app-calculation-history{
   position: relative;
-  z-index: 2;
+
 }
