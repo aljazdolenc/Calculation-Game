@@ -1,0 +1,29 @@
+<div class="history-container">
+
+  <!--   <mat-list role="list" >
+
+      <mat-list-item
+      role="listitem"
+
+      >
+
+
+      </mat-list-item>
+
+    </mat-list> -->
+
+
+    <mat-grid-list cols="3" rowHeight="3:1">
+      <mat-grid-tile
+      class="history-item"
+      *ngFor="let item of historyArray"
+      [ngStyle]="{'color' : (item.isCorrect)? 'green':'red'}">
+
+        <p class="equation">{{item.equation}}</p>
+        <mat-icon *ngIf="item.isCorrect" >check_circle_outline</mat-icon>
+        <mat-icon *ngIf="!item.isCorrect" >close</mat-icon>
+
+      </mat-grid-tile>
+
+    </mat-grid-list>
+</div>

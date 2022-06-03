@@ -1,0 +1,43 @@
+.cont{
+  height:10vh;
+  margin: 8vh 0;
+  text-align: center;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.innerCont{
+  margin: 8vh 0;
+  text-align: center;
+  font-size: 2rem;
+  color:rgba(241, 240, 240, 0.93);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+}
+mat-form-field{
+  font-size:1.2rem;
+  padding-left: 0.5rem;
+  width: 6rem;
+  border: none;
+  margin-bottom: 1rem;
+}
+
+mat-label{
+  color:rgba(241, 240, 240, 0.933);
+}
+
+input{
+  font-size: 1.5rem;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
