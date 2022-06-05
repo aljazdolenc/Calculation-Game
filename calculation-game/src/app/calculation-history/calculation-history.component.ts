@@ -3,6 +3,7 @@ import { HistoryService } from './history.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { HistoryItem } from '../shared/history-item.model';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -22,6 +23,7 @@ export class CalculationHistoryComponent implements OnInit, OnDestroy {
     Breakpoints.Large,
     Breakpoints.XLarge,
   ]
+  historyListSub:Subscription;
 
   constructor(
     private historyService: HistoryService,
@@ -38,7 +40,7 @@ export class CalculationHistoryComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.historyService.sendHistoryArray();
 
-    this.historyService.historyList
+    this.historyListSub=this.historyService.historyList
       .subscribe((array) => {
         this.historyArray = array;
       })
@@ -47,7 +49,7 @@ export class CalculationHistoryComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.historyService.historyList.unsubscribe()
+    this.historyListSub.unsubscribe()
   }
 
 }
