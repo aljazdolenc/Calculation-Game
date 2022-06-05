@@ -1,4 +1,3 @@
-
 import { FormulaService } from './formula.service';
 import { ComponentFixture, ComponentFixtureAutoDetect, fakeAsync, TestBed, tick } from '@angular/core/testing';
 
@@ -35,38 +34,61 @@ describe('FormulaBoxComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should call generateNewEquation onInit', () => {
+  describe('Generated onInit',()=>{
 
-    const spy = spyOn(component,"generateNewEquation")
-    component.ngOnInit();
+    it('should call generateNewEquation', () => {
 
-    expect(component.generateNewEquation).toHaveBeenCalledTimes(1);
-  })
+      spyOn(component,"generateNewEquation")
+      component.ngOnInit();
 
-  it('should display equation onInit', () => {
-    component.firstNum=5;
-    component.secondNum=5;
-    const equationEl = fixture.debugElement.query(By.css('.equation'));
+      expect(component.generateNewEquation).toHaveBeenCalledTimes(1);
+    });
 
-    component.ngOnInit();
+    it('should display equation', () => {
+      component.firstNum=5;
+      component.secondNum=5;
+      const equationEl = fixture.debugElement.query(By.css('.equation'));
 
-    expect(equationEl.nativeElement.textContent.trim()).toBe('5 + 5 =');
-  })
+      component.ngOnInit();
 
-  it('generateNewEquations generates new Equation',()=>{
+      expect(equationEl.nativeElement.textContent.trim()).toBe('5 + 5 =');
+    });
 
-    component.resultForm.patchValue(2);
-    component.correctAnswer = true;
-    mockFormulaService.getRandomNumber.calls.reset();
+  });
 
-    component.generateNewEquation();
+  describe('generateNewEquations is called',()=>{
 
-    expect(mockFormulaService.getRandomNumber.calls.count()).toBe(2);
-    expect(component.firstNum).toEqual(5);
-    expect(component.secondNum).toEqual(5);
-    expect(component.correctAnswer).toBeFalse();
-    expect(component.resultForm.value).toBeNull()
-  })
+    beforeEach(()=>{
+      component.resultForm.patchValue(2);
+      component.correctAnswer = true;
+      mockFormulaService.getRandomNumber.calls.reset();
+
+      component.generateNewEquation();
+    })
+
+    it('Should call getRandomNumber twice',()=>{
+      expect(mockFormulaService.getRandomNumber.calls.count()).toBe(2);
+
+    })
+
+    it('First number should equal dummy number',()=>{
+      expect(component.firstNum).toEqual(5);
+    })
+
+    it('Second number should equal dummy number',()=>{
+      expect(component.secondNum).toEqual(5);
+    })
+
+    it('Should set correctAnswer to false',()=>{
+      expect(component.correctAnswer).toBeFalse();
+
+    })
+
+    it('Should reset form value',()=>{
+      expect(component.resultForm.value).toBeNull();
+    })
+
+  });
 
   it('resetWrongMessage should reset wrongAnswer',()=>{
     component.wrongAnswer =true;
@@ -75,35 +97,102 @@ describe('FormulaBoxComponent', () => {
     expect(component.wrongAnswer).toBeFalse();
   })
 
-  it('submitResult should show alert on invalid input', ()=>{
-    const invalidInput:string='e';
+  describe('SubmitResult function with invalid input value',()=>{
+      const invalidInput:string='e';
 
 
-    spyOn(component,'generateNewEquation');
-    spyOn(component,'submitResult')
-    spyOn(window,'alert');
+    beforeEach(()=>{
+      mockFormulaService.validateResult.calls.reset();
+      spyOn(component,'generateNewEquation');
+      spyOn(component,'submitResult')
+      spyOn(window,'alert');
+    })
 
-    component.submitResult(invalidInput as any);
+    it('should not call validateResult', ()=>{
 
-    expect(mockFormulaService.validateResult).toHaveBeenCalledTimes(0);
-    expect(window.alert).toHaveBeenCalledTimes(1);
+      component.submitResult(invalidInput as any);
+
+      expect(mockFormulaService.validateResult).toHaveBeenCalledTimes(0);
+    });
+
+    it('should show alert with "Invalid input value!" ', ()=>{
+
+      component.submitResult(invalidInput as any);
+
+      expect(window.alert).toHaveBeenCalledTimes(1);
+    });
+
+  })
+
+  describe('SubmitResult with incorrect result value',()=>{
+
+    const input=11;
+
+    beforeEach(()=>{
+      component.firstNum=5;
+      component.secondNum=5;
+      component.resultForm.patchValue(2);
+      mockFormulaService.validateResult.and.returnValue(false);
+    })
+
+    it('should set wrongAnswer to true',()=>{
+
+      component.submitResult(input);
+
+      expect(component.wrongAnswer).toBeTrue();
+    });
+
+    it('should reset form',()=>{
+
+      component.submitResult(input);
+      expect(component.resultForm.value).toBeNull()
+
+    });
   });
 
-  it('submitResult should set wrongAnswer true if input is incorrect',()=>{
-    component.firstNum=5;
-    component.secondNum=5;
+  describe('SubmitResult with correct result value',()=>{
     const input=10;
-    component.resultForm.patchValue(2);
 
-    mockFormulaService.validateResult.and.returnValue(false);
+    beforeEach(()=>{
+      component.firstNum=5;
+      component.secondNum=5;
+      component.resultForm.patchValue(2);
+      mockFormulaService.validateResult.calls.reset();
+      mockFormulaService.validateResult.and.returnValue(true);
 
-    spyOn(component,'generateNewEquation');
+    })
 
-    component.submitResult(input);
+    it('should call validateResult with correct values',()=>{
 
-    expect(component.correctAnswer).toBeFalse();
-    expect(component.wrongAnswer).toBeTrue();
-    expect(component.resultForm.value).toBeNull()
+      component.submitResult(input);
+
+      expect(mockFormulaService.validateResult).toHaveBeenCalledOnceWith(component.firstNum,component.secondNum,input);
+    })
+
+    it('should set wrongAnswer to false',()=>{
+      component.wrongAnswer=true;
+
+      component.submitResult(input);
+
+      expect(component.wrongAnswer).toBeFalse();
+    })
+
+    it('should set correctAnswer to true',()=>{
+      component.submitResult(input);
+
+      expect(component.correctAnswer).toBeTrue();
+    })
+
+    it('submitResult should set correctAnswer true if input is correct',fakeAsync(()=>{
+      spyOn(component,'generateNewEquation');
+
+      component.submitResult(input);
+
+      expect(component.correctAnswer).toBeTrue();
+      tick(4000);
+      expect(component.generateNewEquation).toHaveBeenCalledTimes(1);
+    }));
+
   });
 
   it('should render X if answer is incorrect', ()=>{
@@ -122,28 +211,7 @@ describe('FormulaBoxComponent', () => {
     expect(redX.nativeElement).toBeTruthy();
   });
 
-  it('submitResult should set correctAnswer true if input is correct',fakeAsync(()=>{
 
-    component.firstNum=5;
-    component.secondNum=5;
-    const input=10;
-    component.wrongAnswer=true;
-    component.resultForm.patchValue(2);
-
-    mockFormulaService.validateResult.calls.reset();
-
-    mockFormulaService.validateResult.and.returnValue(true);
-
-    spyOn(component,'generateNewEquation');
-
-    component.submitResult(input);
-
-    expect(mockFormulaService.validateResult).toHaveBeenCalledOnceWith(component.firstNum,component.secondNum,input);
-    expect(component.wrongAnswer).toBeFalse();
-    expect(component.correctAnswer).toBeTrue();
-    tick(4000);
-    expect(component.generateNewEquation).toHaveBeenCalledTimes(1);
-  }));
 });
 
 
