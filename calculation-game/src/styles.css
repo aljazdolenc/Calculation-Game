@@ -14,7 +14,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 /* XXSmall */
-@media (max-width: 399.98px){
+@media (max-width: 429.98px){
   :root{
     --headerFS: 1.8rem;
     --equationFS:1.5rem;
@@ -22,10 +22,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 /* XSmall */
-@media (min-width: 400px) and (max-width: 599.98px){
+@media (min-width: 430px) and (max-width: 599.98px){
   :root{
     --headerFS: 2.5rem;
-    --equationFS:1.75rem;
+    --equationFS:1.9rem;
+    --inputErrFS:1.15rem;
+    --cardWidth: 60vw;
   }
 }
 /* Small */
@@ -34,6 +36,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     --headerFS: 4rem;
     --equationFS:2.5rem;
     --inputErrFS:1.1rem;
+    --cardWidth: 60vw;
   }
 }
 /* Medium */

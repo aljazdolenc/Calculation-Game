@@ -4,6 +4,7 @@ body{
   position: relative;
   height:fit-content;
   min-height:100vh;
+  overflow-y: hidden;
 }
 
 .header{
@@ -29,6 +30,6 @@ body{
   margin: auto;
   margin-bottom: 5vh;
   backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
-  min-width: 270px;
+  min-width: 275px;
 }
 

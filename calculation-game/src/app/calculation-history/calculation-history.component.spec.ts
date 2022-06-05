@@ -1,3 +1,4 @@
+import { MaterialModule } from './../material.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CalculationHistoryComponent } from './calculation-history.component';

@@ -1,7 +1,7 @@
 <div class="cont">
   <div class="innerCont">
 
-    <div style="padding-bottom: 2.5rem;">{{firstNum}} + {{secondNum}} =</div>
+    <div class="equation" style="padding-bottom: 2.7rem;">{{firstNum}} + {{secondNum}} =</div>
 
       <mat-form-field appearance="standard" class="form-field" [hideRequiredMarker]="true">
 
@@ -21,14 +21,14 @@
       </mat-form-field>
 
 
-    <div *ngIf="wrongAnswer">
+    <div *ngIf="wrongAnswer" class="wrongResultContainer">
       <mat-icon
       class="wrongResult"
       style="color: red; "
       >close</mat-icon>
     </div>
 
-    <div *ngIf="correctAnswer">
+    <div *ngIf="correctAnswer" class="correctResultContainer">
       <mat-icon
       class="correctResult"
       style="color: green"

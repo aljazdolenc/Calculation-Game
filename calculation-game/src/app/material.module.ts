@@ -4,7 +4,7 @@ import { NgModule } from "@angular/core";
 import { MatGridListModule } from "@angular/material/grid-list";
 import { MatIconModule } from "@angular/material/icon";
 import { MatListModule } from "@angular/material/list";
-import { MatInputModule } from '@angular/material/input/public-api';
+import { MatInputModule } from '@angular/material/input';
 
 
 const MaterialComponents:any[]=[

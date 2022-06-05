@@ -35,9 +35,19 @@ export class FormulaBoxComponent implements OnInit {
   }
 
   submitResult(result:number){
-    if(isNaN(result) || this.correctAnswer){return}// Checks if input is not a number & can't submit while waiting 4s after correct result
+    if(isNaN(result) || !(typeof result == 'number')){
+      alert('Invalid input value!')
+      return
+    }
+    if(this.correctAnswer){
+      alert('Wait...')
+      return
+    }
+
+    console.log('it passed')
 
     const isCorrect:boolean = this.formulaService.validateResult(this.firstNum, this.secondNum, result);
+
 
     if (isCorrect) {
       this.wrongAnswer=false;

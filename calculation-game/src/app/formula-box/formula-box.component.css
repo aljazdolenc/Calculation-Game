@@ -24,8 +24,13 @@ mat-form-field{
   margin-bottom: 1rem;
 }
 
+mat-form-field-label{
+  top:1em;
+}
+
 mat-label{
   color:rgba(241, 240, 240, 0.933);
+  margin-bottom: 0.3rem;
 }
 mat-error{
   font-size: var(--inputErrFS);
