@@ -35,12 +35,11 @@ export class FormulaBoxComponent implements OnInit {
   }
 
   submitResult(result:number){
+    console.log('submited')
     if(isNaN(result) || !(typeof result == 'number')){
-      alert('Invalid input value!')
       return
     }
     if(this.correctAnswer){
-      alert('Wait...')
       return
     }
 
