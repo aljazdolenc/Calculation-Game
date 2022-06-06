@@ -3,6 +3,7 @@ import { ComponentFixture, ComponentFixtureAutoDetect, fakeAsync, TestBed, tick 
 
 import { FormulaBoxComponent } from './formula-box.component';
 import { By } from '@angular/platform-browser';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('FormulaBoxComponent', () => {
   let component: FormulaBoxComponent;
@@ -16,7 +17,8 @@ describe('FormulaBoxComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [FormulaBoxComponent],
       providers:[{provide:FormulaService, useValue: mockFormulaService},
-      {provide: ComponentFixtureAutoDetect, useValue:true}]
+      {provide: ComponentFixtureAutoDetect, useValue:true}],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
       .compileComponents();
   });
@@ -114,14 +116,6 @@ describe('FormulaBoxComponent', () => {
 
       expect(mockFormulaService.validateResult).toHaveBeenCalledTimes(0);
     });
-
-    it('should show alert with "Invalid input value!" ', ()=>{
-
-      component.submitResult(invalidInput as any);
-
-      expect(window.alert).toHaveBeenCalledTimes(1);
-    });
-
   })
 
   describe('SubmitResult with incorrect result value',()=>{
@@ -183,12 +177,11 @@ describe('FormulaBoxComponent', () => {
       expect(component.correctAnswer).toBeTrue();
     })
 
-    it('submitResult should set correctAnswer true if input is correct',fakeAsync(()=>{
+    it('should call generateNewEquation after 4 seconds',fakeAsync(()=>{
       spyOn(component,'generateNewEquation');
 
       component.submitResult(input);
 
-      expect(component.correctAnswer).toBeTrue();
       tick(4000);
       expect(component.generateNewEquation).toHaveBeenCalledTimes(1);
     }));

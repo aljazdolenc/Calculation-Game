@@ -45,7 +45,7 @@ describe('FormulaService', () => {
       expect(wrong).toEqual(false);
     })
 
-    it('should return false on wrong result',()=>{
+    it('should return true on wrong correct',()=>{
       var correct=service.validateResult(firstNum,secondNum,result)
 
       expect(correct).toEqual(true);

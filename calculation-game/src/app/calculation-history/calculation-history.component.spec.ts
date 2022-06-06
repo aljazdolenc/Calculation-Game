@@ -15,7 +15,6 @@ describe('CalculationHistoryComponent', () => {
   const mockHistoryService = jasmine.createSpyObj('MyRealService',['sendHistoryArray', 'historyList']);
     mockHistoryService.historyList = new Subject();
 
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ CalculationHistoryComponent ],
@@ -51,7 +50,6 @@ describe('CalculationHistoryComponent', () => {
     })
 
     it('historyArray should equal serviceHistoryArray',()=>{
-      // spyOn(mockHistoryService, 'historyList')
       component.ngOnInit()
 
       expect(component.historyArray).toEqual(serviceHistoryArray);
