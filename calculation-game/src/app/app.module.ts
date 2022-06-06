@@ -5,21 +5,25 @@ import { AppComponent } from './app.component';
 import { CalculationHistoryComponent } from './calculation-history/calculation-history.component';
 import { FormulaBoxComponent } from './formula-box/formula-box.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule } from '@angular/forms';
+import{ CUSTOM_ELEMENTS_SCHEMA} from '@angular/core'
 
 @NgModule({
   declarations: [
     AppComponent,
+    FormulaBoxComponent,
     CalculationHistoryComponent,
-    FormulaBoxComponent
+
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     ReactiveFormsModule,
     MaterialModule
   ],
   providers: [],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

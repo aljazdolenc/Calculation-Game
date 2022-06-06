@@ -43,8 +43,8 @@
 
 <br>
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
+[![Product Name Screen Shot][product-screenshot]](https://calculation-game-77777.web.app/)
+Click to visit website.
 <br>
 The website is made for anybody who wants to challenge their brain. Equation generates two random numbers between 0 and 100. Then it is up to you  to try and find the correct answer. Every attempt is saved on the list below and marked accordingly to its correction. 
 <br>
@@ -167,6 +167,8 @@ Don't forget to give the project a star! Thanks again!
 Aljaž Dolenc - developer.aljaz.dolenc@gmail.com
 
 Project Link: [https://github.com/dhimahi-employment-challenge/aljaz-dolenc](https://github.com/dhimahi-employment-challenge/aljaz-dolenc)
+
+Website Link: [https://calculation-game-77777.web.app/](https://calculation-game-77777.web.app/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
