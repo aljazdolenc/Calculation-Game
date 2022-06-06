@@ -3,7 +3,7 @@
 describe('Website test', () => {
 
     it('should visit website', () => {
-        cy.visit('http://localhost:4200/')
+        cy.visit('https://calculation-game-77777.web.app/')
     })
 
     describe('check for `enter value` message', () => {
