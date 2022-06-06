@@ -177,12 +177,12 @@ describe('FormulaBoxComponent', () => {
       expect(component.correctAnswer).toBeTrue();
     })
 
-    it('should call generateNewEquation after 4 seconds',fakeAsync(()=>{
+    it('should call generateNewEquation after 1 seconds',fakeAsync(()=>{
       spyOn(component,'generateNewEquation');
 
       component.submitResult(input);
 
-      tick(4000);
+      tick(1000);
       expect(component.generateNewEquation).toHaveBeenCalledTimes(1);
     }));
 

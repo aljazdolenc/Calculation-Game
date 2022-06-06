@@ -35,7 +35,6 @@ export class FormulaBoxComponent implements OnInit {
   }
 
   submitResult(result:number){
-    console.log('submited')
     if(isNaN(result) || !(typeof result == 'number')){
       return
     }
@@ -43,15 +42,13 @@ export class FormulaBoxComponent implements OnInit {
       return
     }
 
-    console.log('it passed')
-
     const isCorrect:boolean = this.formulaService.validateResult(this.firstNum, this.secondNum, result);
 
 
     if (isCorrect) {
       this.wrongAnswer=false;
       this.correctAnswer = true;
-      setTimeout(()=>this.generateNewEquation(),4000);
+      setTimeout(()=>this.generateNewEquation(),1000);
     } else {
       this.wrongAnswer = true;
       this.resultForm.reset();
