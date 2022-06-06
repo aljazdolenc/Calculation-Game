@@ -1,7 +1,7 @@
 <div class="cont">
   <div class="innerCont">
 
-    <div class="equation" style="padding-bottom: 2.7rem;">{{firstNum}} + {{secondNum}} =</div>
+    <div class="equation" style="padding-bottom: 2.7rem;"> <span data-cy="firstNum">{{firstNum}}</span> + <span data-cy="secondNum">{{secondNum}}</span> =</div>
 
       <mat-form-field appearance="standard" class="form-field" [hideRequiredMarker]="true">
 
@@ -14,17 +14,21 @@
             (keydown.enter)="submitResult(resultInput.valueAsNumber)"
             (click)="resetWrongMessage()"
             [formControl]="resultForm"
+            data-cy="input"
             >
 
-          <mat-error *ngIf="resultForm.invalid">Enter value</mat-error>
+          <mat-error *ngIf="resultForm.invalid" data-cy="errorMessage">Enter value</mat-error>
 
       </mat-form-field>
 
 
-    <div *ngIf="wrongAnswer" class="wrongResultContainer">
+    <div
+    *ngIf="wrongAnswer"
+    class="wrongResultContainer">
       <mat-icon
       class="wrongResult"
-      style="color: red; "
+      style="color: red;"
+      data-cy="resultRedX"
       >close</mat-icon>
     </div>
 
@@ -32,6 +36,7 @@
       <mat-icon
       class="correctResult"
       style="color: green"
+      data-cy="resultGreenCheck"
       >check_circle_outline</mat-icon>
     </div>
 

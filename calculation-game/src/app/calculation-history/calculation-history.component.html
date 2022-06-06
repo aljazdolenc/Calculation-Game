@@ -3,12 +3,17 @@
     <mat-grid-list [cols]="colNumber" rowHeight="3:1">
       <mat-grid-tile
       class="history-item"
-      *ngFor="let item of historyArray"
+      *ngFor="let item of historyArray,let i = index"
       [ngStyle]="{'color' : (item.isCorrect)? 'green':'red'}">
-
-        <p class="equation">{{item.equation}}</p>
-        <mat-icon *ngIf="item.isCorrect" >check_circle_outline</mat-icon>
-        <mat-icon *ngIf="!item.isCorrect" >close</mat-icon>
+        <p
+        class="equation"
+        [attr.data-cy]="'item'+i">{{item.equation}}</p>
+        <mat-icon
+        *ngIf="item.isCorrect"
+        [attr.data-cy]="'itemCheck'+i">check_circle_outline</mat-icon>
+        <mat-icon
+        *ngIf="!item.isCorrect"
+        [attr.data-cy]="'itemX'+i" >close</mat-icon>
 
       </mat-grid-tile>
 
