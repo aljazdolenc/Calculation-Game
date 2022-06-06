@@ -11,6 +11,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   --inputErrFS:1rem;
   --formFieldW:6rem;
 
+  --placeholderFS:0.7rem;
+  --placeholderTop:0em;
+  --equationPadding:0.7rem;
+
 }
 
 /* XXSmall */
@@ -18,9 +22,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   :root{
     --headerFS: 1.8rem;
     --equationFS:1.5rem;
+
+    --equationPadding:1.85rem;
+    --placeholderTop:-1.35em;
   }
 }
-
 /* XSmall */
 @media (min-width: 430px) and (max-width: 599.98px){
   :root{
@@ -28,6 +34,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     --equationFS:1.9rem;
     --inputErrFS:1.15rem;
     --cardWidth: 60vw;
+
+    --equationPadding:2.1rem;
+    --placeholderTop:-1.35em;
   }
 }
 /* Small */
@@ -35,8 +44,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   :root{
     --headerFS: 4rem;
     --equationFS:2.5rem;
-    --inputErrFS:1.1rem;
+    --inputErrFS:1.15rem;
     --cardWidth: 60vw;
+
+    --equationPadding:1.9rem;
+    --placeholderTop:-1.1em;
   }
 }
 /* Medium */
@@ -49,6 +61,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     --cardWidth: 60vw;
     --formFieldW:7.5rem;
     --inputErrFS:1.45rem;
+
+    --equationPadding:2.05rem;
+    --placeholderTop:-0.9em;
   }
 }
 /* Large */
@@ -60,6 +75,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     --equationFS:3.6rem;
     --formFieldW:8.5rem;
     --inputErrFS:1.65rem;
+
+    --equationPadding:2.2rem;
+    --placeholderTop:-0.92em;
   }
 }
 /* XLarge */
@@ -71,5 +89,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     --equationFS:3.6rem;
     --formFieldW:8.5rem;
     --inputErrFS:1.65rem;
+    --equationPadding:2rem;
   }
 }
