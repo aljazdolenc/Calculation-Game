@@ -44,7 +44,8 @@
 <br>
 
 [![Product Name Screen Shot][product-screenshot]](https://calculation-game-77777.web.app/)
-Click to visit website.
+Click picture to visit website.
+
 <br>
 The website is made for anybody who wants to challenge their brain. Equation generates two random numbers between 0 and 100. Then it is up to you  to try and find the correct answer. Every attempt is saved on the list below and marked accordingly to its correction. 
 <br>
@@ -93,7 +94,7 @@ Follow the steps below to install the project.
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/dhimahi-employment-challenge/aljaz-dolenc
    ```
    <br>
 2. Install NPM packages
